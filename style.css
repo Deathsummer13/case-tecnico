@@ -31,13 +31,16 @@ body {
 /* MOBILE FIRST - Estilos base para mobile */
 
 /* Header */
+/* Header atualizado para combinar com o Hero */
 .header {
-    background: var(--white);
-    box-shadow: var(--shadow);
+    background: rgba(125, 38, 201, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .navbar {
@@ -48,39 +51,17 @@ body {
 }
 
 .logo h2 {
-    color: var(--primary-color);
-}
-
-.nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--white);
-    box-shadow: var(--shadow);
-}
-
-.nav-menu.active {
-    display: flex;
-}
-
-.nav-menu li {
-    list-style: none;
-    text-align: center;
+    color: #EAEBE4;
+    font-weight: 700;
 }
 
 .nav-menu a {
-    display: block;
-    padding: 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: background 0.3s;
+    color: #EAEBE4;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    background: var(--light-bg);
+    color: #DFBBFE;
 }
 
 .hamburger {
@@ -512,3 +493,4 @@ body {
     }
 
 }
+
