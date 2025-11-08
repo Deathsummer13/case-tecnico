@@ -1,6 +1,7 @@
 // Menu Mobile
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
+const header = document.querySelector('.header');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
@@ -17,7 +18,43 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Verificação Matemática (Aleatória como antes)
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Dropdown functionality for mobile
+document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 767) {
+            e.preventDefault();
+            const dropdown = this.parentElement;
+            dropdown.classList.toggle('active');
+        }
+    });
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.matches('.dropdown-toggle') && !e.target.closest('.dropdown')) {
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
+
+// Botões de login/register
+document.querySelectorAll('.login-btn, .register-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        alert('Funcionalidade de ' + this.textContent + ' em desenvolvimento!');
+    });
+});
+
+// Verificação Matemática (mantida do código anterior)
 class MathVerification {
     constructor() {
         this.num1 = 0;
@@ -115,25 +152,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(45, 45, 45, 0.98)';
-        header.style.backdropFilter = 'blur(10px)';
-    } else {
-        header.style.background = 'rgba(45, 45, 45, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-    }
-});
-
-// Botões de login/register
-document.querySelectorAll('.login-btn, .register-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        alert('Funcionalidade de ' + this.textContent + ' em desenvolvimento!');
     });
 });
 
