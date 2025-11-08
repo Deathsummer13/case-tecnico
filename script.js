@@ -54,7 +54,7 @@ document.querySelectorAll('.login-btn, .register-btn').forEach(btn => {
     });
 });
 
-// Verificação Matemática (mantida do código anterior)
+// Verificação Matemática
 class MathVerification {
     constructor() {
         this.num1 = 0;
@@ -163,9 +163,25 @@ document.querySelectorAll('.aplicar-btn').forEach(btn => {
     });
 });
 
-// Interação com categorias (opcional)
+// Interação com categorias
 document.querySelectorAll('.categoria-item').forEach(item => {
     item.addEventListener('click', function() {
         this.classList.toggle('selected');
     });
 });
+
+// Busca de vagas
+const searchBtn = document.querySelector('.search-btn');
+if (searchBtn) {
+    searchBtn.addEventListener('click', function() {
+        const searchInputs = document.querySelectorAll('.search-input');
+        const cargo = searchInputs[0].value;
+        const localizacao = searchInputs[1].value;
+        
+        if (cargo || localizacao) {
+            alert(`Buscando vagas para: ${cargo || 'Qualquer cargo'} em ${localizacao || 'Qualquer localização'}`);
+        } else {
+            alert('Digite algum termo para buscar vagas.');
+        }
+    });
+}
