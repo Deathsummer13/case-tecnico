@@ -39,33 +39,35 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Dropdown functionality for mobile - Versão Melhorada
+// Dropdown functionality for mobile - VERSÃO CORRIGIDA
 document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
     toggle.addEventListener('click', function(e) {
         if (window.innerWidth <= 767) {
             e.preventDefault();
             e.stopPropagation();
             
-            const dropdown = this.parentElement;
+            const dropdown = this.closest('.dropdown');
             const isActive = dropdown.classList.contains('active');
             
             // Fecha todos os dropdowns primeiro
             document.querySelectorAll('.dropdown').forEach(d => {
-                d.classList.remove('active');
+                if (d !== dropdown) {
+                    d.classList.remove('active');
+                }
             });
             
-            // Abre o dropdown atual se não estava ativo
-            if (!isActive) {
-                dropdown.classList.add('active');
-            }
+            // Abre/fecha o dropdown atual
+            dropdown.classList.toggle('active');
         }
     });
 });
 
-// Fecha dropdowns ao clicar fora - Versão Melhorada
+// Fecha dropdowns ao clicar fora - VERSÃO CORRIGIDA
 document.addEventListener('click', (e) => {
     if (window.innerWidth <= 767) {
-        if (!e.target.matches('.dropdown-toggle') && !e.target.closest('.dropdown')) {
+        if (!e.target.matches('.dropdown-toggle') && 
+            !e.target.closest('.dropdown-toggle') &&
+            !e.target.closest('.dropdown-menu')) {
             document.querySelectorAll('.dropdown').forEach(dropdown => {
                 dropdown.classList.remove('active');
             });
@@ -234,4 +236,10 @@ document.addEventListener('keydown', (e) => {
             dropdown.classList.remove('active');
         });
     }
+});
+
+// Debug: Verificar se os elementos estão sendo capturados corretamente
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Dropdown toggles encontrados:', document.querySelectorAll('.dropdown-toggle').length);
+    console.log('Dropdowns encontrados:', document.querySelectorAll('.dropdown').length);
 });
