@@ -17,7 +17,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Verificação Matemática
+// Verificação Matemática (Aleatória como antes)
 class MathVerification {
     constructor() {
         this.num1 = 0;
@@ -97,7 +97,10 @@ if (contactForm) {
         // Limpar formulário e gerar novo problema
         this.reset();
         mathVerification.generateProblem();
-        document.getElementById('mathFeedback').textContent = '';
+        const mathFeedback = document.getElementById('mathFeedback');
+        if (mathFeedback) {
+            mathFeedback.textContent = '';
+        }
     });
 }
 
@@ -139,5 +142,12 @@ document.querySelectorAll('.aplicar-btn').forEach(btn => {
     btn.addEventListener('click', function() {
         const vagaTitle = this.closest('.vaga-card').querySelector('h3').textContent;
         alert('Candidatura para "' + vagaTitle + '" enviada com sucesso!');
+    });
+});
+
+// Interação com categorias (opcional)
+document.querySelectorAll('.categoria-item').forEach(item => {
+    item.addEventListener('click', function() {
+        this.classList.toggle('selected');
     });
 });
