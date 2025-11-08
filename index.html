@@ -123,50 +123,66 @@
         <div class="container">
             <div class="contato-grid">
                 <div class="contato-info">
-                    <h2>Entre em Contato</h2>
-                    <p>Preencha o formulário ao lado e nossa equipe entrará em contato em breve.</p>
-                    <div class="contato-details">
-                        <div class="contato-item">
-                            <span class="contato-icon">📧</span>
-                            <span>contato@vagas.com</span>
+                    <h2>Lorem ipsum dolor sit amet consectetur</h2>
+                    <p class="contato-desc">Lorem ipsum dolor sit amet consectetur. Semper orci adipiscing faucibus sit scelerisque</p>
+                    <p class="contato-quote"><em>Lorem ipsum dolor sit amet consectetur</em></p>
+                    
+                    <div class="categorias-grid">
+                        <div class="categoria-col">
+                            <h4>Categoria*</h4>
+                            <div class="categoria-item">Categoria</div>
+                            <div class="categoria-item">Categoria</div>
+                            <div class="categoria-item">Categoria</div>
                         </div>
-                        <div class="contato-item">
-                            <span class="contato-icon">📱</span>
-                            <span>(11) 99999-9999</span>
-                        </div>
-                        <div class="contato-item">
-                            <span class="contato-icon">📍</span>
-                            <span>São Paulo, Brasil</span>
+                        <div class="categoria-col">
+                            <h4>Categoria*</h4>
+                            <div class="categoria-item">Categoria</div>
+                            <div class="categoria-item">Categoria</div>
+                            <div class="categoria-item">Categoria</div>
                         </div>
                     </div>
                 </div>
+                
                 <div class="contato-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="nome">Nome Completo</label>
+                            <label for="nome">Nome Completo*</label>
                             <input type="text" id="nome" name="nome" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">E-mail</label>
+                            <label for="email">E-mail*</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="telefone">Telefone</label>
+                            <label for="telefone">Telefone*</label>
                             <input type="tel" id="telefone" name="telefone" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
+                            <label for="mensagem">Mensagem*</label>
                             <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
                         </div>
 
-                        <!-- Verificação Matemática -->
-                        <div class="form-group math-verification">
-                            <label id="mathQuestion">Quanto é ? + ?</label>
-                            <input type="number" id="mathAnswer" name="mathAnswer" required>
+                        <!-- Verificação de Segurança -->
+                        <div class="security-verification">
+                            <h4>Verificação de segurança</h4>
+                            <div class="math-problem">
+                                <span id="mathQuestion">Quanto é ? + ?</span>
+                                <input type="number" id="mathAnswer" name="mathAnswer" required placeholder="Resultado*">
+                            </div>
                             <span id="mathFeedback" class="feedback"></span>
+                        </div>
+
+                        <div class="form-footer">
+                            <p class="form-note"><strong>Lorem ipsum dolor sit amet</strong></p>
+                            <div class="form-checklist">
+                                <span>Lorem ipsum</span>
+                                <span>Lorem ipsum</span>
+                                <span>Lorem ipsum</span>
+                                <span>Lorem ipsum</span>
+                            </div>
                         </div>
 
                         <button type="submit" class="submit-btn">Enviar Mensagem</button>
