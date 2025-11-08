@@ -5,28 +5,16 @@ const header = document.querySelector('.header');
 
 if (hamburger) {
     hamburger.addEventListener('click', () => {
-        const isActive = hamburger.classList.toggle('active');
+        hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open', isActive);
     });
 }
 
-// Fechar menu ao clicar em um link (exceto dropdown)
+// Fechar menu ao clicar em um link
 document.querySelectorAll('.nav-menu a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 767) {
-            // Se não for um dropdown toggle, fecha o menu
-            if (!e.target.classList.contains('dropdown-toggle') && 
-                !e.target.closest('.dropdown-toggle')) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        } else {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
@@ -39,46 +27,20 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Dropdown functionality for mobile - Versão Melhorada
+// Dropdown functionality for mobile
 document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
     toggle.addEventListener('click', function(e) {
         if (window.innerWidth <= 767) {
             e.preventDefault();
-            e.stopPropagation();
-            
             const dropdown = this.parentElement;
-            const isActive = dropdown.classList.contains('active');
-            
-            // Fecha todos os dropdowns primeiro
-            document.querySelectorAll('.dropdown').forEach(d => {
-                d.classList.remove('active');
-            });
-            
-            // Abre o dropdown atual se não estava ativo
-            if (!isActive) {
-                dropdown.classList.add('active');
-            }
+            dropdown.classList.toggle('active');
         }
     });
 });
 
-// Fecha dropdowns ao clicar fora - Versão Melhorada
+// Close dropdown when clicking outside
 document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 767) {
-        if (!e.target.matches('.dropdown-toggle') && !e.target.closest('.dropdown')) {
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        }
-    }
-});
-
-// Fecha menu ao redimensionar para desktop
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 767) {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
+    if (!e.target.matches('.dropdown-toggle') && !e.target.closest('.dropdown')) {
         document.querySelectorAll('.dropdown').forEach(dropdown => {
             dropdown.classList.remove('active');
         });
@@ -223,15 +185,3 @@ if (searchBtn) {
         }
     });
 }
-
-// Fecha menu ao pressionar ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-});
