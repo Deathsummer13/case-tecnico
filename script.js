@@ -2,10 +2,12 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+}
 
 // Fechar menu ao clicar em um link
 document.querySelectorAll('.nav-menu a').forEach(link => {
@@ -35,30 +37,34 @@ class MathVerification {
         this.correctAnswer = this.num1 + this.num2;
 
         const mathQuestion = document.getElementById('mathQuestion');
-        mathQuestion.textContent = `Quanto é ${this.num1} + ${this.num2}?`;
+        if (mathQuestion) {
+            mathQuestion.textContent = `Quanto é ${this.num1} + ${this.num2}?`;
+        }
     }
 
     setupValidation() {
         const mathAnswerInput = document.getElementById('mathAnswer');
         const mathFeedback = document.getElementById('mathFeedback');
 
-        mathAnswerInput.addEventListener('input', (e) => {
-            const userAnswer = parseInt(e.target.value);
-            
-            if (isNaN(userAnswer)) {
-                mathFeedback.textContent = '';
-                mathFeedback.className = 'feedback';
-                return;
-            }
+        if (mathAnswerInput && mathFeedback) {
+            mathAnswerInput.addEventListener('input', (e) => {
+                const userAnswer = parseInt(e.target.value);
+                
+                if (isNaN(userAnswer)) {
+                    mathFeedback.textContent = '';
+                    mathFeedback.className = 'feedback';
+                    return;
+                }
 
-            if (userAnswer === this.correctAnswer) {
-                mathFeedback.textContent = '✓ Resposta correta!';
-                mathFeedback.className = 'feedback correct';
-            } else {
-                mathFeedback.textContent = '✗ Resposta incorreta. Tente novamente.';
-                mathFeedback.className = 'feedback incorrect';
-            }
-        });
+                if (userAnswer === this.correctAnswer) {
+                    mathFeedback.textContent = '✓ Resposta correta!';
+                    mathFeedback.className = 'feedback correct';
+                } else {
+                    mathFeedback.textContent = '✗ Resposta incorreta. Tente novamente.';
+                    mathFeedback.className = 'feedback incorrect';
+                }
+            });
+        }
     }
 
     validateForm() {
@@ -71,26 +77,29 @@ class MathVerification {
 const mathVerification = new MathVerification();
 
 // Validação do Formulário
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    if (!mathVerification.validateForm()) {
-        alert('Por favor, resolva corretamente a verificação matemática antes de enviar.');
-        return;
-    }
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (!mathVerification.validateForm()) {
+            alert('Por favor, resolva corretamente a verificação matemática antes de enviar.');
+            return;
+        }
 
-    // Simular envio do formulário
-    const formData = new FormData(this);
-    const formObject = Object.fromEntries(formData);
-    
-    console.log('Dados do formulário:', formObject);
-    alert('Formulário enviado com sucesso!');
-    
-    // Limpar formulário e gerar novo problema
-    this.reset();
-    mathVerification.generateProblem();
-    document.getElementById('mathFeedback').textContent = '';
-});
+        // Simular envio do formulário
+        const formData = new FormData(this);
+        const formObject = Object.fromEntries(formData);
+        
+        console.log('Dados do formulário:', formObject);
+        alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+        
+        // Limpar formulário e gerar novo problema
+        this.reset();
+        mathVerification.generateProblem();
+        document.getElementById('mathFeedback').textContent = '';
+    });
+}
 
 // Smooth Scroll para links internos
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -106,14 +115,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Adicionar classe de scroll no header
+// Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.background = 'rgba(45, 45, 45, 0.98)';
         header.style.backdropFilter = 'blur(10px)';
     } else {
-        header.style.background = 'var(--white)';
-        header.style.backdropFilter = 'none';
+        header.style.background = 'rgba(45, 45, 45, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
     }
+});
+
+// Botões de login/register
+document.querySelectorAll('.login-btn, .register-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        alert('Funcionalidade de ' + this.textContent + ' em desenvolvimento!');
+    });
+});
+
+// Botões de aplicar nas vagas
+document.querySelectorAll('.aplicar-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const vagaTitle = this.closest('.vaga-card').querySelector('h3').textContent;
+        alert('Candidatura para "' + vagaTitle + '" enviada com sucesso!');
+    });
 });
