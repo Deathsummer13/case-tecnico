@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Técnico</title>
+    <title>Vagas de Emprego - Desenvolvimento</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,14 +11,18 @@
     <header class="header">
         <nav class="navbar">
             <div class="logo">
-                <h2>Logo</h2>
+                <h2>Vagas.com</h2>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#vagas">Vagas</a></li>
+                <li><a href="#empresas">Empresas</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="login-btn">Entrar</button>
+                <button class="register-btn">Cadastrar</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -27,123 +31,181 @@
         </nav>
     </header>
 
-        <!-- Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Título Principal Impactante</h1>
-                <p class="hero-subtitle">Uma descrição convincente que explica o valor principal do seu produto ou serviço em poucas palavras.</p>
-                <div class="hero-buttons">
-                    <button class="cta-button primary">Começar Agora</button>
-                    <button class="cta-button secondary">Saiba Mais</button>
+                <h1 class="hero-title">Encontre o Trabalho dos Seus Sonhos</h1>
+                <p class="hero-subtitle">Conectamos talentos excepcionais com oportunidades incríveis em desenvolvimento e tecnologia.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Cargo, palavra-chave ou empresa" class="search-input">
+                    <input type="text" placeholder="Localização" class="search-input">
+                    <button class="search-btn">Buscar Vagas</button>
                 </div>
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <span>Benefício 1</span>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1.2k+</span>
+                        <span class="stat-label">Vagas Ativas</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <span>Benefício 2</span>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Empresas</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <span>Benefício 3</span>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Taxa de Sucesso</span>
                     </div>
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="hero-image-placeholder">
-                    <!-- Imagem/Ilustração do mockup -->
-                    <span>Imagem do Hero</span>
+                <div class="hero-image">
+                    <!-- Imagem ilustrativa do hero -->
                 </div>
             </div>
         </div>
-        
-        <!-- Elementos decorativos -->
-        <div class="hero-decoration">
-            <div class="decoration-circle circle-1"></div>
-            <div class="decoration-circle circle-2"></div>
-            <div class="decoration-circle circle-3"></div>
-        </div>
     </section>
 
-    <!-- Sobre Section -->
-    <section id="sobre" class="sobre">
+    <!-- Vagas em Destaque -->
+    <section id="vagas" class="vagas-destaque">
         <div class="container">
-            <h2>Sobre Nós</h2>
-            <div class="sobre-content">
-                <div class="sobre-text">
-                    <p>Texto sobre a empresa ou projeto...</p>
+            <h2 class="section-title">Vagas em Destaque</h2>
+            <div class="vagas-grid">
+                <div class="vaga-card">
+                    <div class="vaga-header">
+                        <div class="empresa-logo"></div>
+                        <div class="vaga-info">
+                            <h3>Desenvolvedor Front-end</h3>
+                            <span class="empresa-nome">Tech Solutions</span>
+                        </div>
+                    </div>
+                    <div class="vaga-details">
+                        <span class="vaga-local">Remoto</span>
+                        <span class="vaga-salario">R$ 8.000 - R$ 12.000</span>
+                    </div>
+                    <button class="aplicar-btn">Aplicar</button>
                 </div>
-                <div class="sobre-image">
-                    <!-- Imagem ilustrativa -->
+
+                <div class="vaga-card">
+                    <div class="vaga-header">
+                        <div class="empresa-logo"></div>
+                        <div class="vaga-info">
+                            <h3>Desenvolvedor Back-end</h3>
+                            <span class="empresa-nome">Data Systems</span>
+                        </div>
+                    </div>
+                    <div class="vaga-details">
+                        <span class="vaga-local">São Paulo, SP</span>
+                        <span class="vaga-salario">R$ 9.000 - R$ 14.000</span>
+                    </div>
+                    <button class="aplicar-btn">Aplicar</button>
+                </div>
+
+                <div class="vaga-card">
+                    <div class="vaga-header">
+                        <div class="empresa-logo"></div>
+                        <div class="vaga-info">
+                            <h3>Full Stack Developer</h3>
+                            <span class="empresa-nome">Inova Tech</span>
+                        </div>
+                    </div>
+                    <div class="vaga-details">
+                        <span class="vaga-local">Híbrido</span>
+                        <span class="vaga-salario">R$ 10.000 - R$ 15.000</span>
+                    </div>
+                    <button class="aplicar-btn">Aplicar</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Serviços Section -->
-    <section id="servicos" class="servicos">
-        <div class="container">
-            <h2>Nossos Serviços</h2>
-            <div class="servicos-grid">
-                <div class="servico-card">
-                    <h3>Serviço 1</h3>
-                    <p>Descrição do serviço</p>
-                </div>
-                <div class="servico-card">
-                    <h3>Serviço 2</h3>
-                    <p>Descrição do serviço</p>
-                </div>
-                <div class="servico-card">
-                    <h3>Serviço 3</h3>
-                    <p>Descrição do serviço</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulário Section -->
+    <!-- Formulário de Contato -->
     <section id="contato" class="contato">
         <div class="container">
-            <h2>Entre em Contato</h2>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <h2>Entre em Contato</h2>
+                    <p>Preencha o formulário ao lado e nossa equipe entrará em contato em breve.</p>
+                    <div class="contato-details">
+                        <div class="contato-item">
+                            <span class="contato-icon">📧</span>
+                            <span>contato@vagas.com</span>
+                        </div>
+                        <div class="contato-item">
+                            <span class="contato-icon">📱</span>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                        <div class="contato-item">
+                            <span class="contato-icon">📍</span>
+                            <span>São Paulo, Brasil</span>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="mensagem">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-                </div>
+                <div class="contato-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" required>
+                        </div>
 
-                <!-- Verificação Matemática -->
-                <div class="form-group math-verification">
-                    <label id="mathQuestion">Quanto é ? + ?</label>
-                    <input type="number" id="mathAnswer" name="mathAnswer" required>
-                    <span id="mathFeedback" class="feedback"></span>
-                </div>
+                        <div class="form-group">
+                            <label for="mensagem">Mensagem</label>
+                            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+                        </div>
 
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
-            </form>
+                        <!-- Verificação Matemática -->
+                        <div class="form-group math-verification">
+                            <label id="mathQuestion">Quanto é ? + ?</label>
+                            <input type="number" id="mathAnswer" name="mathAnswer" required>
+                            <span id="mathFeedback" class="feedback"></span>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Todos os direitos reservados</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Vagas.com</h3>
+                    <p>Conectando talentos a oportunidades desde 2024.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#vagas">Vagas</a></li>
+                        <li><a href="#empresas">Empresas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li>contato@vagas.com</li>
+                        <li>(11) 99999-9999</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vagas.com. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
